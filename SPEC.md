@@ -36,7 +36,7 @@ sample_index,batch_size,batch_p99_latency_msec,per_image_latency_ms,images_sec,g
 
 - **#1: Largest-batch inference throughput, images/s** — stored as `images_sec`.
 - **#2: Largest-batch per-image latency, ms** — stored as `per_image_latency_ms`.
-- **#3: Largest-batch p99 latency, ms** — stored as `batch_p99_latency_msec`.
+- **#3: Largest-batch latency max, ms** — stored as `batch_latency_max_msec`.
 - **#4: Largest-batch GPU utilization** — stored as `gpu_util_percent`.
 - **#5: Peak GPU memory at largest batch, GB** — stored as `peak_gpu_memory_GB`.
 

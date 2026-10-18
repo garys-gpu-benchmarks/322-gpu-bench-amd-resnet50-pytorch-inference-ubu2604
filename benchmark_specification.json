@@ -37,7 +37,7 @@
   {
     "field_name": "Metrics",
     "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
-    "value": "#1: Largest-batch inference throughput, images/s (images_sec); #2: Largest-batch per-image latency, ms (per_image_latency_ms); #3: Largest-batch p99 latency, ms (batch_p99_latency_msec); #4: Largest-batch GPU utilization (gpu_util_percent); #5: Peak GPU memory at largest batch, GB (peak_gpu_memory_GB)"
+    "value": "#1: Largest-batch inference throughput, images/s (images_sec); #2: Largest-batch per-image latency, ms (per_image_latency_ms); #3: Largest-batch latency max, ms (batch_latency_max_msec); #4: Largest-batch GPU utilization (gpu_util_percent); #5: Peak GPU memory at largest batch, GB (peak_gpu_memory_GB)"
   },
   {
     "field_name": "Command Tools Executed",
@@ -127,7 +127,7 @@
   {
     "field_name": "Parser and Normalization Notes",
     "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
-    "value": "There is no p50 or p95 batch-latency column. batch_p99_latency_msec is the 99th percentile of timed steps for that batch. Headline metric columns on every row are the largest batch; case_* keeps that batch's own values. gpu_util_percent is the mean amdgpu busy reading every 0.1 s, or na (timed loop too short to sample) / na (rocm-smi gave no utilization reading). Peak memory is reset before each batch"
+    "value": "There is no p50 or p95 batch-latency column. batch_p99_latency_msec is the 99th percentile of timed steps for that batch. Headline metric columns on every row are the largest batch; case_* keeps that batch's own values. gpu_util_percent is the mean amdgpu busy reading every 0.1 s, or na (timed loop too short to sample) / na (amd-smi gave no utilization reading). Peak memory is reset before each batch"
   },
   {
     "field_name": "Hardware Config",
@@ -162,7 +162,7 @@
   {
     "field_name": "Python Version",
     "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
-    "value": "Python 3.14.N (uv-managed; all benchmark venvs; same build as 24.04). System python3.14 retained for OS and setup scripts only"
+    "value": "Python 3.14.8 (uv-managed CPython from `uv python install 3.14`; all benchmark venvs; same build as 24.04). System Python 3.14.4 retained for OS and setup scripts only"
   },
   {
     "field_name": "GPU Runtime Version (was ROCm Version)",
@@ -217,7 +217,7 @@
   {
     "field_name": "g++ Version",
     "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
-    "value": "N/A - CMake not used"
+    "value": "N/A - g++ not used"
   },
   {
     "field_name": "Known Runtime Constraints (<=35 Words Each)",
@@ -362,7 +362,7 @@
   {
     "field_name": "Schema Last Updated",
     "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
-    "value": "2026-08-16"
+    "value": "2026-10-17"
   },
   {
     "field_name": "Installation and Execution Summary",
