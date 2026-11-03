@@ -85,7 +85,7 @@ Three operator scripts from [`garys-gpu-benchmarks/gpu-bench-suite`](https://git
 
 ## 1. Overview
 
-Runs torchvision ResNet-50 eval inference on synthetic images while sweeping yaml batch_size. dtype: bf16 by default (fp16 if yaml lacks bf16). image_size, warmup_iters, and num_iterations come from yaml. device_id, weights, image_source, and num_workers are ignored. Sweep dimensions: device_id, weights, dtype, precision, image_source, image_size, batch_size, num_workers.
+Runs torchvision ResNet-50 eval inference on synthetic images while sweeping yaml batch_size. dtype: bf16 by default (fp16 if yaml lacks bf16). image_size, warmup_iters, and num_iterations come from yaml. device_id, weights, image_source, and num_workers are ignored. Sweep dimensions: device_id, dtype, image_size, batch_size, warmup_iters, num_iterations.
 
 ## 2. What It Validates
 
