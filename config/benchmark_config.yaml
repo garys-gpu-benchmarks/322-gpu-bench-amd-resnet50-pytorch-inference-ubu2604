@@ -26,3 +26,4 @@ sweep:
     smoke: 3
     baseline: 8400
     extended: 13830
+  use_channels_last: true

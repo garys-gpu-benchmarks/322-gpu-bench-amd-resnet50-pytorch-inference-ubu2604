@@ -51,6 +51,7 @@ Workload options:
   --batch-size <value>            Override batch_size
   --warmup-iters <value>            Override warmup_iters
   --num-iterations <value>            Override num_iterations
+  --use-channels-last <value>            Override use_channels_last
 
 Information:
   --specification               Print this workload's specification and exit
@@ -90,6 +91,7 @@ IMAGE_SIZE=""
 BATCH_SIZE=""
 WARMUP_ITERS=""
 NUM_ITERATIONS=""
+USE_CHANNELS_LAST=""
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
@@ -116,6 +118,7 @@ while [[ $# -gt 0 ]]; do
     --batch-size) BATCH_SIZE="${2:-}"; shift 2 ;;
     --warmup-iters) WARMUP_ITERS="${2:-}"; shift 2 ;;
     --num-iterations) NUM_ITERATIONS="${2:-}"; shift 2 ;;
+    --use-channels-last) USE_CHANNELS_LAST="${2:-}"; shift 2 ;;
     --help|--specification|--matrix-definition) shift ;;
     *) die "Unknown option: $1" ;;
   esac
@@ -160,6 +163,7 @@ IMAGE_SIZE="${IMAGE_SIZE:-$(yaml_get image_size)}"
 BATCH_SIZE="${BATCH_SIZE:-$(yaml_get batch_size)}"
 WARMUP_ITERS="${WARMUP_ITERS:-$(yaml_get warmup_iters)}"
 NUM_ITERATIONS="${NUM_ITERATIONS:-$(yaml_get num_iterations)}"
+USE_CHANNELS_LAST="${USE_CHANNELS_LAST:-$(yaml_get use_channels_last)}"
 OUTPUT_FORMAT="${OUTPUT_FORMAT:-$(yaml_get output_format)}"
 OUTPUT_FORMAT="${OUTPUT_FORMAT:-csv}"
 
@@ -171,6 +175,7 @@ BENCHMARK_RUN_COMMAND="bash run_benchmark.sh --${PROFILE}"
 [[ -n "${BATCH_SIZE}" ]] && BENCHMARK_RUN_COMMAND+=" --batch-size $(printf %q "${BATCH_SIZE}")"
 [[ -n "${WARMUP_ITERS}" ]] && BENCHMARK_RUN_COMMAND+=" --warmup-iters $(printf %q "${WARMUP_ITERS}")"
 [[ -n "${NUM_ITERATIONS}" ]] && BENCHMARK_RUN_COMMAND+=" --num-iterations $(printf %q "${NUM_ITERATIONS}")"
+[[ -n "${USE_CHANNELS_LAST}" ]] && BENCHMARK_RUN_COMMAND+=" --use-channels-last $(printf %q "${USE_CHANNELS_LAST}")"
 set_benchmark_run_command "${BENCHMARK_RUN_COMMAND}"
 
 HOSTNAME_VALUE="$(hostname -s 2>/dev/null || hostname)"
@@ -219,6 +224,7 @@ run_collection() {
   grep -q -- '--batch-size' <<<"${help}" && collect_args+=(--batch-size "${BATCH_SIZE}")
   grep -q -- '--warmup-iters' <<<"${help}" && collect_args+=(--warmup-iters "${WARMUP_ITERS}")
   grep -q -- '--num-iterations' <<<"${help}" && collect_args+=(--num-iterations "${NUM_ITERATIONS}")
+  grep -q -- '--use-channels-last' <<<"${help}" && collect_args+=(--use-channels-last "${USE_CHANNELS_LAST}")
 
   printf -v collect_cmd '%q ' "${PYTHON_BIN}" scripts/collect_workload.py "${collect_args[@]}"
   echo "[RUN] ${collect_cmd}"

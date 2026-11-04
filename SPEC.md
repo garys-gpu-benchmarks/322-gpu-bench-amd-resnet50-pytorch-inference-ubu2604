@@ -2,7 +2,7 @@
 
 ## Execution Description
 
-Runs torchvision ResNet-50 eval inference on synthetic images while sweeping yaml batch_size. dtype: bf16 by default (fp16 if yaml lacks bf16). image_size, warmup_iters, and num_iterations come from yaml. device_id, weights, image_source, and num_workers are ignored. Sweep dimensions: device_id, dtype, image_size, batch_size, warmup_iters, num_iterations.
+Runs torchvision ResNet-50 eval inference on synthetic images while sweeping yaml batch_size. dtype: bf16 by default (fp16 if yaml lacks bf16). image_size, warmup_iters, and num_iterations come from yaml. device_id: GPU index. Sweep dimensions: device_id, dtype, image_size, batch_size, warmup_iters, num_iterations, use_channels_last.
 
 ## Parameters
 
@@ -14,6 +14,7 @@ Runs torchvision ResNet-50 eval inference on synthetic images while sweeping yam
 | batch_size | `--batch-size` | smoke=1,2, baseline=1,2,4,8,16,32, extended=1,2,4,8,16,32,64,128 | 1,2,4,8,16,32 | From Parameter list; see Execution Description With Parameters. |
 | warmup_iters | `--warmup-iters` | smoke=1, baseline=5, extended=10 | 5 | From Parameter list; see Execution Description With Parameters. |
 | num_iterations | `--num-iterations` | smoke=3, baseline=8400, extended=13830 | 8400 | From Parameter list; see Execution Description With Parameters. |
+| use_channels_last | `--use-channels-last` | smoke=true, baseline=true, extended=true | true | From Parameter list; see Execution Description With Parameters. |
 
 ## Invocation
 
