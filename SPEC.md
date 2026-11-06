@@ -43,7 +43,7 @@ Runs torchvision ResNet-50 eval inference on synthetic images while sweeping yam
 
 ## Installation and Execution Summary
 
-Run inline torchvision ResNet-50 eval over the yaml batch_size list using random weights and synthetic bf16 images, emit one row per batch size, to measure inference images/s and latency. This is not a five-minute server loop
+Run inline torchvision ResNet-50 eval over the yaml batch_size list using random weights and synthetic bf16 images, emit one row per batch size, to measure inference images/s and latency
 
 ## Platform Portability
 

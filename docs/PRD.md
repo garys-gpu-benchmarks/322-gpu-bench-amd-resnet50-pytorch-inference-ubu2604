@@ -15,13 +15,13 @@ This PRD.md section is populated from benchmark_specification.json, which is the
 ResNet-50 BF16 Inference Throughput Sweep
 
 ## Execution Summary (Run and Measure)
-Run inline torchvision ResNet-50 eval over the yaml batch_size list using random weights and synthetic bf16 images, emit one row per batch size, to measure inference images/s and latency. This is not a five-minute server loop
+Run inline torchvision ResNet-50 eval over the yaml batch_size list using random weights and synthetic bf16 images, emit one row per batch size, to measure inference images/s and latency
 
 ## Main Goal
 Measure ResNet-50 BF16 inference throughput
 
 ## Validation Objective
-Validates one row per batch size from inline ResNet-50 eval. This is not a five-minute server loop
+Validates ResNet-50 BF16 images/s and latency for each yaml batch size from inline eval
 
 ## Workload Category
 Training, Inference, Model Workloads
