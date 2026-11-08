@@ -205,14 +205,14 @@
     "value": "MI300X"
   },
   {
-    "field_name": "Raw Output Format",
-    "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
-    "value": "CSV with one row per batch size. Headline metrics are copied onto every row, and case_* columns keep that batch's own values"
-  },
-  {
     "field_name": "Primary Record Granularity",
     "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
     "value": "one row per batch size"
+  },
+  {
+    "field_name": "Raw Output Format",
+    "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
+    "value": "CSV with one row per batch size. Headline metrics are copied onto every row, and case_* columns keep that batch's own values"
   },
   {
     "field_name": "Raw Output Example",
@@ -225,14 +225,14 @@
     "value": "images_sec, per_image_latency_ms, batch_latency_max_msec, batch_p99_latency_msec, gpu_util_percent, peak_gpu_memory_GB, headline_batch_size. Each measurement is also stored as case_<metric>"
   },
   {
-    "field_name": "Success Criteria",
-    "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
-    "value": "Every requested batch size produces a finite images_sec and per_image_latency_ms, with no OOM"
-  },
-  {
     "field_name": "Parser and Normalization Notes",
     "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
     "value": "There is no p50 or p95 batch-latency column. batch_p99_latency_msec is the 99th percentile of timed steps for that batch. Headline metric columns on every row are the largest batch; case_* keeps that batch's own values. gpu_util_percent is the mean amdgpu busy reading every 0.1 s, or na (timed loop too short to sample) / na (amd-smi gave no utilization reading). Peak memory is reset before each batch"
+  },
+  {
+    "field_name": "Success Criteria",
+    "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
+    "value": "Every requested batch size produces a finite images_sec and per_image_latency_ms, with no OOM"
   },
   {
     "field_name": "Hardware Config",
