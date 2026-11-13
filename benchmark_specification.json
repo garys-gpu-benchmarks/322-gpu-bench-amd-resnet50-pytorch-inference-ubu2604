@@ -40,6 +40,11 @@
     "value": "Run in-process torchvision ResNet-50 eval on synthetic tensors while sampling GPU utilization during the timed loop"
   },
   {
+    "field_name": "Execution Description With Parameters",
+    "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
+    "value": "Runs torchvision ResNet-50 eval inference on synthetic images while sweeping yaml batch_size. dtype: bf16 by default (fp16 if yaml lacks bf16). image_size, warmup_iters, and num_iterations come from yaml. device_id: GPU index. use_channels_last: channels-last memory format for the model and input. weights, image_source, and num_workers are ignored. output_format: csv"
+  },
+  {
     "field_name": "Metrics",
     "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
     "value": "#1: Largest-batch inference throughput, images/s (images_sec); #2: Largest-batch per-image latency, ms (per_image_latency_ms); #3: Largest-batch latency max, ms (batch_latency_max_msec); #4: Largest-batch GPU utilization (gpu_util_percent); #5: Peak GPU memory at largest batch, GB (peak_gpu_memory_GB)"
@@ -173,11 +178,6 @@
     "field_name": "Command Methodology",
     "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
     "value": "Run inline torchvision ResNet-50 eval over the yaml batch_size list with random weights and synthetic bf16 images, one row per batch size, and sample GPU utilization during the timed loop"
-  },
-  {
-    "field_name": "Execution Description With Parameters",
-    "source_file": "BenchmarkSpecDefinitions.xlsx::Workload_Definitions",
-    "value": "Runs torchvision ResNet-50 eval inference on synthetic images while sweeping yaml batch_size. dtype: bf16 by default (fp16 if yaml lacks bf16). image_size, warmup_iters, and num_iterations come from yaml. device_id: GPU index. use_channels_last: channels-last memory format for the model and input. weights, image_source, and num_workers are ignored. output_format: csv"
   },
   {
     "field_name": "Execution Domain",
